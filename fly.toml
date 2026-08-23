@@ -1,23 +1,23 @@
-# fly.toml app configuration file generated for silentguardian on 2026-08-22T23:45:18Z
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# fly.toml — generated for SilentGuardianOS
+# Run `fly launch` once to create the app, or `fly apps create silentguardian-os`
+# then `fly deploy` using this config.
 
-app = 'silentguardian'
-primary_region = 'iad'
+app = "silentguardian-os"
+primary_region = "sjc"
 
 [build]
 
+[env]
+  PORT = "3000"
+
 [http_service]
-  internal_port = 8080
+  internal_port = 3000
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = true
   auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
+  min_machines_running = 1
 
 [[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
+  memory = "512mb"
+  cpu_kind = "shared"
   cpus = 1
-  memory_mb = 256

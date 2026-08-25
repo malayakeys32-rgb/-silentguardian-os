@@ -1,21 +1,20 @@
-// The stylesheet is loaded by Next.js; its ambient type declaration is not
-// available to the TypeScript language service in this project.
-// @ts-expect-error
-import "../style/hologram.css";
-import HoloFrame from "../components/HaloFrame";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Silent Guardian",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
       <body className="sg-body">
-        <HoloFrame>{children}</HoloFrame>
+        {children}
       </body>
     </html>
   );
 }
-
-

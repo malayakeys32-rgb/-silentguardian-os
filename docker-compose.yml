@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: guardian
+      POSTGRES_PASSWORD: guardianpass
+      POSTGRES_DB: silentguardian
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://guardian:guardianpass@db:5432/silentguardian"
+    depends_on:
+      - db

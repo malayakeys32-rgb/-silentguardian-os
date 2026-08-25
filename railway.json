@@ -1,0 +1,11 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "restartPolicyType": "ON_FAILURE"
+  },
+  "env": {
+    "DATABASE_URL": "YOUR_RAILWAY_POSTGRES_URL"
+  }
+}

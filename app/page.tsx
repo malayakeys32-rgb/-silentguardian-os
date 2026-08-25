@@ -5,7 +5,7 @@ export default function Home() {
     <main className="sg-root">
       <h1>Silent Guardian</h1>
       <p>Public safety alerts and incident reporting.</p>
-      <Link href="/dashboard" className="sg-button">Enter Guardian Dashboard</Link>
+      <Link href="/guardian/dashboard" className="sg-button">Enter Guardian Dashboard</Link>
     </main>
   );
 }

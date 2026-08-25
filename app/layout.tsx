@@ -1,4 +1,7 @@
-import "../styles/hologram.css";
+// The stylesheet is loaded by Next.js; its ambient type declaration is not
+// available to the TypeScript language service in this project.
+// @ts-expect-error
+import "../style/hologram.css";
 import HoloFrame from "../components/HaloFrame";
 
 export const metadata = {

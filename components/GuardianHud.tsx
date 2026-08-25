@@ -6,10 +6,10 @@ export default function GuardianHUD() {
       <div className="hud-title">Silent Guardian</div>
       <nav className="hud-nav">
         <Link href="/" className="hud-link">Home</Link>
-        <Link href="/dashboard" className="hud-link">Dashboard</Link>
-        <Link href="/alerts" className="hud-link">Alerts</Link>
-        <Link href="/reports" className="hud-link">Reports</Link>
-        <Link href="/fentanyl" className="hud-link hud-link-warning">Fentanyl</Link>
+        <Link href="/guardian/dashboard" className="hud-link">Dashboard</Link>
+        <Link href="/guardian/alerts" className="hud-link">Alerts</Link>
+        <Link href="/guardian/reports" className="hud-link">Reports</Link>
+        <Link href="/guardian/fentanyl" className="hud-link hud-link-warning">Fentanyl</Link>
       </nav>
     </header>
   );

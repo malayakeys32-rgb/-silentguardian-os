@@ -1,4 +1,4 @@
-app = "silent-guardian"
+app = "silentguardian"
 
 [build]
   dockerfile = "Dockerfile"

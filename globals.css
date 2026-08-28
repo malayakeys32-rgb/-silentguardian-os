@@ -4,7 +4,7 @@ html, body { margin: 0; min-height: 100%; }
 
 body { background: #020617; color: #f1f5f9; }
 
-.sg-shell { min-height: 100vh; display: flex; background: radial-gradient(circle at 50% -10%, rgba(0, 255, 255, 0.34), transparent 38rem), linear-gradient(135deg, #071a2a 0%, #020617 56%, #07131d 100%); }
+.sg-shell { min-height: 100vh; display: flex; background: linear-gradient(rgba(2, 6, 23, 0.48), rgba(2, 6, 23, 0.7)), url("/background.png") center / cover fixed; }
 .sg-main { flex: 1; min-width: 0; }
 .sg-sidebar { width: 252px; flex: 0 0 252px; min-height: 100vh; padding: 24px 16px; display: flex; flex-direction: column; gap: 22px; background: rgba(3, 15, 28, 0.96); border-right: 1px solid rgba(34, 211, 238, 0.3); box-shadow: 12px 0 40px rgba(0, 0, 0, 0.28); }
 .sg-brand { display: flex; align-items: center; gap: 11px; color: #e0f7ff; text-decoration: none; }

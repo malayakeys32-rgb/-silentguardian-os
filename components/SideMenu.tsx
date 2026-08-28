@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const menuItems = [
   { href: "/dashboard", label: "Dashboard", detail: "Live overview" },
+  { href: "/health-monitor", label: "Health Monitor", detail: "Vital alerts" },
   { href: "/map", label: "Map", detail: "Incident zones" },
   { href: "/report", label: "Report", detail: "Submit incident" },
   { href: "/fentanyl", label: "Fentanyl", detail: "Exposure safety" },

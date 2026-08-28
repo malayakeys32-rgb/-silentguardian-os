@@ -7,6 +7,7 @@ export default function Home() {
       <p>Public safety alerts and incident reporting.</p>
       <nav aria-label="Silent Guardian modules" className="sg-nav">
         <Link href="/dashboard" className="sg-button">Dashboard</Link>
+        <Link href="/health-monitor" className="sg-button">Health Monitor</Link>
         <Link href="/map" className="sg-button">Map</Link>
         <Link href="/report" className="sg-button">Submit Incident Report</Link>
         <Link href="/fentanyl" className="sg-button">Fentanyl Module</Link>

@@ -15,20 +15,23 @@ export default function Page() {
     });
 
     const data = await res.json();
-    console.log("Dashboard Heart Attack Response:", data);
+    console.log("Emergency Page Heart Attack Response:", data);
   }
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Silent Guardian — Dashboard</h1>
+      <h1>Silent Guardian — Emergency Page</h1>
 
-      <p>Trigger a heart‑attack alert from the dashboard.</p>
+      <p>
+        This page is dedicated to emergency actions.  
+        Use the button below to trigger a heart‑attack alert.
+      </p>
 
       <button
         onClick={sendHeartAttackAlert}
         style={{
           padding: "10px 20px",
-          backgroundColor: "red",
+          backgroundColor: "darkred",
           color: "white",
           borderRadius: "8px",
           border: "none",
@@ -37,7 +40,7 @@ export default function Page() {
           marginTop: "20px"
         }}
       >
-        Heart Attack Alert
+        Emergency Heart Attack Alert
       </button>
     </div>
   );

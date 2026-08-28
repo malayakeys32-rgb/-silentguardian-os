@@ -15,7 +15,7 @@ export default function SideMenu() {
   return (
     <aside className="sg-sidebar" aria-label="Silent Guardian navigation">
       <Link href="/" className="sg-brand">
-        <span className="sg-brand-mark" aria-hidden="true">SG</span>
+        <span className="sg-brand-mark" aria-hidden="true"><span>SG</span></span>
         <span>
           <strong>Silent Guardian</strong>
           <small>PUBLIC SAFETY OS</small>

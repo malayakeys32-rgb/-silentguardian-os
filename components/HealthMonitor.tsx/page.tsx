@@ -1,6 +1,4 @@
-"use client";
-
-export default function Page() {
+export default function HealthMonitor() {
 
   // Heart Attack Trigger Function
   async function sendHeartAttackAlert() {
@@ -15,29 +13,29 @@ export default function Page() {
     });
 
     const data = await res.json();
-    console.log("Dashboard Heart Attack Response:", data);
+    console.log("Health Monitor Heart Attack Response:", data);
   }
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Silent Guardian — Dashboard</h1>
+      <h2>Silent Guardian — Health Monitor</h2>
 
-      <p>Trigger a heart‑attack alert from the dashboard.</p>
+      <p>Trigger a heart‑attack alert from the health monitoring system.</p>
 
       <button
         onClick={sendHeartAttackAlert}
         style={{
           padding: "10px 20px",
-          backgroundColor: "red",
+          backgroundColor: "crimson",
           color: "white",
           borderRadius: "8px",
-          border: "none",
+          border: "none",   
           cursor: "pointer",
           fontSize: "16px",
           marginTop: "20px"
         }}
       >
-        Heart Attack Alert
+        Monitor Heart Attack Alert
       </button>
     </div>
   );

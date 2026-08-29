@@ -1,44 +1,30 @@
-"use client";
+import HealthMonitor from "../components/HealthMonitor";
+import FentanylMonitor from "../components/FentanylMonitor";
+import ResponderMap from "../components/ResponderMap";
 
 export default function Page() {
-
-  // Heart Attack Trigger Function
-  async function sendHeartAttackAlert() {
-    const res = await fetch("/api/heartattack", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: "nyla-001",
-        heartRate: 170,
-        symptoms: ["chest_pain"]
-      })
-    });
-
-    const data = await res.json();
-    console.log("Dashboard Heart Attack Response:", data);
-  }
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Silent Guardian — Dashboard</h1>
-
-      <p>Trigger a heart‑attack alert from the dashboard.</p>
-
-      <button
-        onClick={sendHeartAttackAlert}
+    <div style={{ display: "grid", gap: "20px" }}>
+      <h1 style={{ fontSize: "24px", marginBottom: "8px" }}>
+        Unified Emergency Dashboard
+      </h1>
+      <p style={{ fontSize: "13px", opacity: 0.8, marginBottom: "16px" }}>
+        Heart-attack detection, fentanyl-overdose alerts, and responder
+        coordination in one control surface.
+      </p>
+      <div
         style={{
-          padding: "10px 20px",
-          backgroundColor: "red",
-          color: "white",
-          borderRadius: "8px",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "16px",
-          marginTop: "20px"
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 1fr)",
+          gap: "20px",
         }}
       >
-        Heart Attack Alert
-      </button>
+        <div style={{ display: "grid", gap: "16px" }}>
+          <HealthMonitor />
+          <FentanylMonitor />
+        </div>
+        <ResponderMap />
+      </div>
     </div>
   );
 }

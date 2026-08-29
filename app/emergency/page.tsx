@@ -1,47 +1,28 @@
-"use client";
+import HealthMonitor from "../components/HealthMonitor";
+import FentanylMonitor from "../components/FentanylMonitor";
+import ResponderMap from "../components/ResponderMap";
 
 export default function Page() {
-
-  // Heart Attack Trigger Function
-  async function sendHeartAttackAlert() {
-    const res = await fetch("/api/heartattack", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: "nyla-001",
-        heartRate: 170,
-        symptoms: ["chest_pain"]
-      })
-    });
-
-    const data = await res.json();
-    console.log("Emergency Page Heart Attack Response:", data);
-  }
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Silent Guardian — Emergency Page</h1>
-
-      <p>
-        This page is dedicated to emergency actions.  
-        Use the button below to trigger a heart‑attack alert.
+    <div style={{ display: "grid", gap: "20px" }}>
+      <h1 style={{ fontSize: "24px", marginBottom: "8px" }}>
+        Emergency Control Center
+      </h1>
+      <p style={{ fontSize: "13px", opacity: 0.8, marginBottom: "16px" }}>
+        Use this view during active incidents to trigger alerts and track
+        responders.
       </p>
-
-      <button
-        onClick={sendHeartAttackAlert}
+      <div
         style={{
-          padding: "10px 20px",
-          backgroundColor: "darkred",
-          color: "white",
-          borderRadius: "8px",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "16px",
-          marginTop: "20px"
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
+          gap: "20px",
         }}
       >
-        Emergency Heart Attack Alert
-      </button>
+        <HealthMonitor />
+        <FentanylMonitor />
+      </div>
+      <ResponderMap />
     </div>
   );
 }

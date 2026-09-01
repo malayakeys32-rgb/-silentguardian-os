@@ -1,4 +1,6 @@
-export default function HoloFrame({ children }) {
+import React from "react";
+
+export default function HaloFrame({ children }: { children: React.ReactNode }) {
   return (
     <div className="holo-frame">
       <aside className="holo-sidebar">

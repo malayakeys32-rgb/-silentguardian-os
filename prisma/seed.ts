@@ -1,21 +1,21 @@
-import { db } from "../db/client";
+import { prisma } from "../db/client";
 
 async function main() {
-  await db.alert.create({
+  await prisma.alert.create({
     data: {
       title: "Test Alert",
       description: "Sample general safety alert."
     }
   });
 
-  await db.report.create({
+  await prisma.report.create({
     data: {
       title: "Test Report",
       description: "Sample incident report."
     }
   });
 
-  await db.fentanylAlert.create({
+  await prisma.fentanylAlert.create({
     data: {
       location: "Downtown",
       description: "Possible fentanyl exposure."

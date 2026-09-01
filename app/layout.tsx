@@ -1,12 +1,14 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "../style/hologram.css";
-import HoloFrame from "../components/HoloFrame";
+import HaloFrame from "../components/HaloFrame";
 import { headers } from "next/headers";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Silent Guardian"
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   const path = headers().get("x-pathname") || "/";
   const isDashboard = path.startsWith("/dashboard");
 
@@ -14,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="sg-body">
         {isDashboard ? (
-          <HoloFrame>{children}</HoloFrame>
+          <HaloFrame>{children}</HaloFrame>
         ) : (
           <main>{children}</main>
         )}

@@ -3,12 +3,11 @@ import HoloFrame from "../components/HoloFrame";
 import { headers } from "next/headers";
 
 export const metadata = {
-  title: "Silent Guardian",
+  title: "Silent Guardian"
 };
 
 export default function RootLayout({ children }) {
   const path = headers().get("x-pathname") || "/";
-
   const isDashboard = path.startsWith("/dashboard");
 
   return (
@@ -23,4 +22,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

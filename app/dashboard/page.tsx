@@ -1,29 +1,56 @@
-import HealthMonitor from "../components/HealthMonitor";
-import FentanylMonitor from "../components/FentanylMonitor";
-import ResponderMap from "../components/ResponderMap";
+import { prisma } from "@/db/client";
 
-export default function Page() {
+async function getStats() {
+  const users = await prisma.user.count();
+  const alerts = await prisma.alert.count();
+  const reports = await prisma.report.count();
+  const fentanyl = await prisma.fentanylAlert.count();
+
+  const revenue = await prisma.subscription.aggregate({
+    _sum: { price: true }
+  });
+
+  return {
+    users,
+    alerts,
+    reports,
+    fentanyl,
+    revenue: revenue._sum.price || 0
+  };
+}
+
+export default async function Dashboard() {
+  const stats = await getStats();
+
   return (
-    <div style={{ display: "grid", gap: "20px" }}>
-      <h1 style={{ fontSize: "24px", marginBottom: "8px" }}>
-        Unified Emergency Dashboard
-      </h1>
-      <p style={{ fontSize: "13px", opacity: 0.8, marginBottom: "16px" }}>
-        Heart-attack detection, fentanyl-overdose alerts, and responder
-        coordination in one control surface.
-      </p>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 1fr)",
-          gap: "20px",
-        }}
-      >
-        <div style={{ display: "grid", gap: "16px" }}>
-          <HealthMonitor />
-          <FentanylMonitor />
+    <div className="dashboard">
+      <h1>Guardian Dashboard</h1>
+
+      <div className="stats-grid">
+        <div className="stat-card">
+          <h2>Total Users</h2>
+          <p>{stats.users}</p>
         </div>
-        <ResponderMap />
+
+        <div className="stat-card">
+          <h2>Alerts</h2>
+          <p>{stats.alerts}</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>Reports</h2>
+          <p>{stats.reports}</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>Fentanyl Alerts</h2>
+          <p>{stats.fentanyl}</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>Revenue</h2>
+          <p>${stats.revenue}</p>
+        </div>
       </div>
     </div>
   );

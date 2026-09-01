@@ -1,44 +1,57 @@
-"use client";
+import { prisma } from "@/db/client";
 
-export default function Page() {
+async function getStats() {
+  const users = await prisma.user.count();
+  const alerts = await prisma.alert.count();
+  const reports = await prisma.report.count();
+  const fentanyl = await prisma.fentanylAlert.count();
 
-  // Heart Attack Trigger Function
-  async function sendHeartAttackAlert() {
-    const res = await fetch("/api/heartattack", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: "nyla-001",
-        heartRate: 170,
-        symptoms: ["chest_pain"]
-      })
-    });
+  const revenue = await prisma.subscription.aggregate({
+    _sum: { price: true }
+  });
 
-    const data = await res.json();
-    console.log("Dashboard Heart Attack Response:", data);
-  }
+  return {
+    users,
+    alerts,
+    reports,
+    fentanyl,
+    revenue: revenue._sum.price || 0
+  };
+}
+
+export default async function Dashboard() {
+  const stats = await getStats();
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Silent Guardian — Dashboard</h1>
+    <div className="dashboard">
+      <h1>Guardian Dashboard</h1>
 
-      <p>Trigger a heart‑attack alert from the dashboard.</p>
+      <div className="stats-grid">
+        <div className="stat-card">
+          <h2>Total Users</h2>
+          <p>{stats.users}</p>
+        </div>
 
-      <button
-        onClick={sendHeartAttackAlert}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "red",
-          color: "white",
-          borderRadius: "8px",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "16px",
-          marginTop: "20px"
-        }}
-      >
-        Heart Attack Alert
-      </button>
+        <div className="stat-card">
+          <h2>Alerts</h2>
+          <p>{stats.alerts}</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>Reports</h2>
+          <p>{stats.reports}</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>Fentanyl Alerts</h2>
+          <p>{stats.fentanyl}</p>
+        </div>
+
+        <div className="stat-card">
+          <h2>Revenue</h2>
+          <p>${stats.revenue}</p>
+        </div>
+      </div>
     </div>
   );
 }

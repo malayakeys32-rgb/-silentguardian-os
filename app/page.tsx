@@ -62,7 +62,7 @@ export default function Page() {
             height: "260px",
             borderRadius: "12px",
             background:
-              "linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.95)), url('/silent-guardian-city.jpg') center/cover",
+              "linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.92)), url('/background.png') center/cover",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",

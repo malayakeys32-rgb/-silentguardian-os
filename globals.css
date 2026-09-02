@@ -1,37 +1,122 @@
-/* ===== Existing global styles (keep yours above this) ===== */
-/* If your file already has resets or imports, leave them. */
-
-
-/* ===== Added styles for Silent Guardian landing page ===== */
+/* --------------------------------------------------
+   GLOBAL RESET + BASE
+-------------------------------------------------- */
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background-color: #020617; /* Dark hologram theme */
-  margin: 0;
-  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-a {
+/* --------------------------------------------------
+   HOLOGRAM GLOW SYSTEM
+-------------------------------------------------- */
+
+.holo-glow {
+  border: 1px solid rgba(0, 200, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.4),
+              inset 0 0 20px rgba(0, 200, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Neon borders for modules */
+.neon-blue {
+  border: 1px solid #00aaff;
+  box-shadow: 0 0 15px #00aaff;
+}
+
+.neon-purple {
+  border: 1px solid #b400ff;
+  box-shadow: 0 0 15px #b400ff;
+}
+
+.neon-green {
+  border: 1px solid #00ff88;
+  box-shadow: 0 0 15px #00ff88;
+}
+
+/* --------------------------------------------------
+   BUTTONS (Clickable + Glow)
+-------------------------------------------------- */
+
+button {
   cursor: pointer;
+  transition: 0.25s ease;
 }
 
-/* Optional smooth text rendering */
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
 }
 
-/* Optional: remove default list styling */
-ul {
-  list-style: none;
-  padding-left: 0;
+/* --------------------------------------------------
+   DASHBOARD GRID
+-------------------------------------------------- */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
 }
 
-/* Optional: make images behave nicely */
-img {
-  max-width: 100%;
-  display: block;
+/* Dashboard module cards */
+.dashboard-card {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 25px;
+  border-radius: 16px;
+  transition: 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+}
+
+/* --------------------------------------------------
+   TEXT STYLES
+-------------------------------------------------- */
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 22px;
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------
+   CLICK FIX — NO OVERLAYS BLOCKING LINKS
+-------------------------------------------------- */
+
+.overlay,
+.holo-overlay,
+.glass-layer {
+  pointer-events: none;
+}
+
+/* If you need a clickable overlay, use this instead */
+.overlay-click {
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  margin-top: 80px;
+  opacity: 0.5;
+  font-size: 14px;
+}
 }

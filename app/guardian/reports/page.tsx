@@ -28,7 +28,7 @@ export default function ReportsPage() {
       <form onSubmit={submitReport} className="sg-form">
         <input className="sg-input" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
         <textarea className="sg-textarea" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Describe what happened" />
-        <button className="sg-button">Submit</button>
+        <button type="submit" className="sg-button">Submit</button>
       </form>
       {status && <p className="sg-status">{status}</p>}
     </main>

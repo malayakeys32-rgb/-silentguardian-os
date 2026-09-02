@@ -12,6 +12,12 @@ const menuItems = [
   { href: "/advanced", label: "Advanced", detail: "Analysis tools" },
 ];
 
+const supportItems = [
+  { href: "/support", label: "Help Center", detail: "Documentation & FAQ" },
+  { href: "/support/tickets", label: "Support Tickets", detail: "Track issues" },
+  { href: "/support/messages", label: "Messages", detail: "Email & notifications" },
+];
+
 export default function SideMenu() {
   return (
     <aside className="sg-sidebar" aria-label="Silent Guardian navigation">
@@ -31,6 +37,14 @@ export default function SideMenu() {
       <nav className="sg-sidebar-nav">
         <p className="sg-sidebar-label">Operations</p>
         {menuItems.map((item) => (
+          <Link key={item.href} href={item.href} className="sg-sidebar-link">
+            <span className="sg-sidebar-icon" aria-hidden="true">{item.label.slice(0, 1)}</span>
+            <span><strong>{item.label}</strong><small>{item.detail}</small></span>
+          </Link>
+        ))}
+
+        <p className="sg-sidebar-label">Support</p>
+        {supportItems.map((item) => (
           <Link key={item.href} href={item.href} className="sg-sidebar-link">
             <span className="sg-sidebar-icon" aria-hidden="true">{item.label.slice(0, 1)}</span>
             <span><strong>{item.label}</strong><small>{item.detail}</small></span>

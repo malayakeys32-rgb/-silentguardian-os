@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "../style/hologram.css";
-import HaloFrame from "../components/HaloFrame";
+import MainLayout from "../components/MainLayout";
 import { headers } from "next/headers";
 
 export const metadata: Metadata = {
@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const path = headers().get("x-pathname") || "/";
-  const isDashboard = path.startsWith("/dashboard");
+  const isPublic = path === "/";
 
   return (
     <html lang="en">
       <body className="sg-body">
-        {isDashboard ? (
-          <HaloFrame>{children}</HaloFrame>
-        ) : (
+        {isPublic ? (
           <main>{children}</main>
+        ) : (
+          <MainLayout>{children}</MainLayout>
         )}
       </body>
     </html>

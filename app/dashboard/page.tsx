@@ -1,77 +1,187 @@
-// app/dashboard/page.tsx
-
-"use client";
-
 import Link from "next/link";
 
-export default function DashboardPage() {
+export default function Page() {
   return (
-    <div className="min-h-screen bg-black text-white px-10 py-16">
+    <div
+      style={{
+        minHeight: "100vh",
+        padding: "32px",
+        background:
+          "radial-gradient(circle at top, #4fd1c5 0, #1a202c 45%, #000000 100%)",
+        color: "#f7fafc",
+        fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+      }}
+    >
+      <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+        <button
+          style={{
+            marginBottom: "24px",
+            padding: "8px 14px",
+            fontSize: "12px",
+            borderRadius: "999px",
+            border: "1px solid rgba(226,232,240,0.3)",
+            background: "rgba(15,23,42,0.7)",
+            color: "#e2e8f0",
+            cursor: "pointer",
+          }}
+        >
+          Back Home
+        </button>
 
-      {/* Header */}
-      <header className="flex items-center justify-between mb-12">
-        <h1 className="text-5xl font-bold tracking-wide">
+        <h1
+          style={{
+            fontSize: "26px",
+            marginBottom: "8px",
+            letterSpacing: "0.04em",
+            textTransform: "uppercase",
+          }}
+        >
           Silent Guardian Dashboard
         </h1>
 
-        <Link href="/" className="block">
-          <button className="px-5 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg">
-            Back Home
-          </button>
-        </Link>
-      </header>
+        <p
+          style={{
+            fontSize: "13px",
+            opacity: 0.8,
+            marginBottom: "24px",
+          }}
+        >
+          Central control for emergency intelligence modules—heart attack, fentanyl overdose, and responder coordination.
+        </p>
 
-      {/* Main Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-        {/* Heart Attack Module */}
-        <div className="bg-gray-900 p-6 rounded-xl shadow-lg border border-blue-600">
-          <h2 className="text-2xl font-semibold mb-4">Heart Attack Detection</h2>
-          <p className="text-gray-300 mb-6">
-            Real‑time monitoring of cardiac distress signals.
+        {/* Heart Attack Detection */}
+        <section
+          style={{
+            marginBottom: "20px",
+            padding: "16px",
+            borderRadius: "12px",
+            background: "rgba(15,23,42,0.85)",
+            border: "1px solid rgba(56,178,172,0.4)",
+          }}
+        >
+          <h2 style={{ fontSize: "18px", marginBottom: "6px" }}>
+            Heart Attack Detection
+          </h2>
+          <p
+            style={{
+              fontSize: "13px",
+              opacity: 0.85,
+              marginBottom: "12px",
+            }}
+          >
+            Real-time monitoring of cardiac distress signals.
           </p>
-
-          <Link href="/modules/heart-attack" className="block">
-            <button className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg">
+          <Link href="/heartattack">
+            <button
+              style={{
+                padding: "8px 14px",
+                fontSize: "13px",
+                borderRadius: "999px",
+                border: "none",
+                background:
+                  "linear-gradient(90deg, #38b2ac, #4fd1c5, #63b3ed)",
+                color: "#0f172a",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
               Open Module
             </button>
           </Link>
-        </div>
+        </section>
 
-        {/* Fentanyl Module */}
-        <div className="bg-gray-900 p-6 rounded-xl shadow-lg border border-purple-600">
-          <h2 className="text-2xl font-semibold mb-4">Fentanyl Overdose Detection</h2>
-          <p className="text-gray-300 mb-6">
-            AI‑powered chemical exposure and respiratory distress analysis.
+        {/* Fentanyl Overdose Detection */}
+        <section
+          style={{
+            marginBottom: "20px",
+            padding: "16px",
+            borderRadius: "12px",
+            background: "rgba(15,23,42,0.85)",
+            border: "1px solid rgba(246,173,85,0.5)",
+          }}
+        >
+          <h2 style={{ fontSize: "18px", marginBottom: "6px" }}>
+            Fentanyl Overdose Detection
+          </h2>
+          <p
+            style={{
+              fontSize: "13px",
+              opacity: 0.85,
+              marginBottom: "12px",
+            }}
+          >
+            AI-powered chemical exposure and respiratory distress analysis.
           </p>
-
-          <Link href="/modules/fentanyl" className="block">
-            <button className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg">
+          <Link href="/fentanyl">
+            <button
+              style={{
+                padding: "8px 14px",
+                fontSize: "13px",
+                borderRadius: "999px",
+                border: "none",
+                background:
+                  "linear-gradient(90deg, #f6ad55, #fbd38d, #fed7e2)",
+                color: "#1a202c",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
               Open Module
             </button>
           </Link>
-        </div>
+        </section>
 
         {/* Responder Map */}
-        <div className="bg-gray-900 p-6 rounded-xl shadow-lg border border-green-600">
-          <h2 className="text-2xl font-semibold mb-4">Responder Map</h2>
-          <p className="text-gray-300 mb-6">
+        <section
+          style={{
+            marginBottom: "20px",
+            padding: "16px",
+            borderRadius: "12px",
+            background: "rgba(15,23,42,0.85)",
+            border: "1px solid rgba(129,140,248,0.6)",
+          }}
+        >
+          <h2 style={{ fontSize: "18px", marginBottom: "6px" }}>
+            Responder Map
+          </h2>
+          <p
+            style={{
+              fontSize: "13px",
+              opacity: 0.85,
+              marginBottom: "12px",
+            }}
+          >
             Live geolocation of responders and emergency units.
           </p>
-
-          <Link href="/modules/responder-map" className="block">
-            <button className="w-full px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg">
+          <Link href="/map">
+            <button
+              style={{
+                padding: "8px 14px",
+                fontSize: "13px",
+                borderRadius: "999px",
+                border: "none",
+                background:
+                  "linear-gradient(90deg, #818cf8, #a855f7, #ec4899)",
+                color: "#0f172a",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
               Open Module
             </button>
           </Link>
-        </div>
+        </section>
 
+        <p
+          style={{
+            marginTop: "32px",
+            fontSize: "11px",
+            opacity: 0.6,
+          }}
+        >
+          Silent Guardian © 2026 — Emergency Intelligence System
+        </p>
       </div>
-
-      {/* Footer */}
-      <footer className="mt-20 text-center text-gray-500">
-        Silent Guardian © 2026 — Emergency Intelligence System
-      </footer>
     </div>
   );
 }
